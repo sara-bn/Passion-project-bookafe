@@ -44,5 +44,5 @@ Bookafe is a website for book lovers that provides useful set of information for
 ![ERD](ERD.png)
 
 ## Prototype 
-![page1](page1.png)
+![page1](page1.png) 
 
