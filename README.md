@@ -35,10 +35,10 @@ Bookafe is a website for book lovers that provides useful set of information for
 
 ##Nice to Have:  
 
-1-	Link to Stores
-1-	Link to Meet-up Groups (if existed)
-1-	Notifications and follow ups for the plan
-1-	Allow Social Login
+1.  Link to Stores
+1.  Link to Meet-up Groups (if existed)
+1.  Notifications and follow ups for the plan
+1.  Allow Social Login
 
 
 
