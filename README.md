@@ -33,7 +33,7 @@ Bookafe is a website for book lovers that provides useful set of information for
 1.	Reading plan
 1.	Editable Reading List (add/ remove)
 
-##Nice to Have:  
+## Nice to Have:  
 
 1.  Link to Stores
 1.  Link to Meet-up Groups (if existed)
