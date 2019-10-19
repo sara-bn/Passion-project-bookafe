@@ -43,5 +43,5 @@ Bookafe is a website for book lovers that provides useful set of information for
 ## Entity Relationship Diagram
 ![ERD](ERD.png)
 ## Prototype 
-![page1.PNG](page1.png)
+![page1](page1.png)
 
