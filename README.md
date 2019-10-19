@@ -54,3 +54,5 @@ Bookafe is a website for book lovers that provides useful set of information for
 
 ![page5](page5.PNG) 
 
+![page6](page6.PNG)
+
