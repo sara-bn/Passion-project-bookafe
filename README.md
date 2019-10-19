@@ -41,6 +41,6 @@ Bookafe is a website for book lovers that provides useful set of information for
 1.  Allow Social Login
 
 ## Entity Relationship Diagram
-![ERD](C:\Users\17789\Documents\Passion Project\database)
+![ERD](C:\Users\17789\Documents\Passion Project\database.png)
 
 
