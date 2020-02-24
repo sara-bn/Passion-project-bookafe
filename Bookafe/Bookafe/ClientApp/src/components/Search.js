@@ -1,6 +1,5 @@
 ﻿import React, { Component } from 'react';
 
-
 export class Search extends Component {
     constructor() {
         super();
@@ -10,14 +9,13 @@ export class Search extends Component {
         this.getAll = this.getAll.bind(this);
     }
 
-    componentDidMount() {
-        this.getAll();
-    }
-
-
+    //componentDidMount() {
+    //    this.getAll();
+    //}
 
     getAll() {
-        const URL = "https://www.googleapis.com/books/v1/volumes?q=untitle:harrypotter&maxResults=3"
+        let title = this.titleToSearch.value;
+        const URL = "https://www.googleapis.com/books/v1/volumes?q=untitle:"+title+"&maxResults=10"
         // This code gets data from the remote server.
         fetch(URL)
             .then(response => response.json())
@@ -36,12 +34,27 @@ export class Search extends Component {
 
     render() {
         return (
-            <ul>
-                {this.state.searchByTitle.map((item, index) => (
-                    <li key={item.id}>{item.volumeInfo.imageLinks.thumbnail}</li>
+            <div>
+                <input
+                    type="text"
+                    ref={getTitleInput => (this.titleToSearch = getTitleInput)}
+                />
+                <button onClick={this.getAll}>Search</button>
+                <br />
+              <table class="table table-sm table-dark">
+                <tr><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
+                {
+                    this.state.searchByTitle.map((data) =>
+                        <tr>
+                            <td>  {data.volumeInfo.title} </td>
+                            <td>  {data.volumeInfo.authors[0]} </td>
+                            <td>  {data.volumeInfo.averageRating} </td>
+                            <td>  <img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="100" width="140"/> </td>
 
-                ))}
-            </ul>
+                        </tr>
+                    )}
+              </table>
+            </div>
             );
     }
 }
