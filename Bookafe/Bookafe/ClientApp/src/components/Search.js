@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 export class Search extends Component {
     constructor() {
@@ -8,10 +9,6 @@ export class Search extends Component {
         };
         this.getAll = this.getAll.bind(this);
     }
-
-    //componentDidMount() {
-    //    this.getAll();
-    //}
 
     getAll() {
         let title = this.titleToSearch.value;
@@ -67,21 +64,21 @@ export class Search extends Component {
                     ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
                 />
                 <br />
-                <button onClick={this.getAll}>Search by Author</button>
+                <button onClick={this.getAll}>Search</button>
                 <br />
-              <table class="table table-sm table-dark">
-                <tr><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
-                {
-                    this.state.searchResult.map((data) =>
-                        <tr>
-                            <td>  {data.volumeInfo.title} </td>
-                            <td>  {data.volumeInfo.authors[0]} </td>
-                            <td>  {data.volumeInfo.averageRating} </td>
-                            <td>  <img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="100" width="140"/> </td>
-                        </tr>
-                        )}
-                    </table>
-            </div>
+                 <table class="table table-sm table-dark">
+                    <tr><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
+                    {
+                        this.state.searchResult.map((data) =>
+                            <tr>
+                                <td>  <Link key={data.volumeInfo.id} to={"/details/" + data.volumeInfo.id}> {data.volumeInfo.title}</Link> </td>
+                                <td>  {data.volumeInfo.authors[0]} </td>
+                                <td>  {data.volumeInfo.averageRating} </td>
+                                <td>  <img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="80" width="100" /> </td>
+                            </tr>
+                            )}
+                 </table>
+              </div>
             );
     }
 }
