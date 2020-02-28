@@ -5,6 +5,7 @@ import { Home } from './components/Home';
 import { Search } from './components/Search';
 import { Details } from './components/Details';
 import { Counter } from './components/Counter';
+import { List } from './components/List';
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
@@ -22,6 +23,7 @@ export default class App extends Component {
         //<AuthorizeRoute path='/search' component={Search} />
             <Route path='/search' component={Search} />
             <Route path="/details/:id" component={Details} />
+            <Route path='/list' component={List} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );
