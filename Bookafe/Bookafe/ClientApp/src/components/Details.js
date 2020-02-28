@@ -9,8 +9,8 @@ export class Details extends Component {
         };
     }
     componentDidMount() {
-        let idm = "b8NODwAAQBAJ"
-        const URL = "https://www.googleapis.com/books/v1/volumes/" + idm;
+        let id = this.props.match.params.id
+        const URL = "https://www.googleapis.com/books/v1/volumes/" + id;
         fetch(URL)
             .then(response => response.json())
            
@@ -24,12 +24,12 @@ export class Details extends Component {
                 alert(error);
             });
        }
-            render() {
+         render() {
+         
                 return (
                     <div className="container">
                         <div class="row">
                             <div class="col-12">
-                                <p>  {this.props.id} </p> 
                                 <h1>{this.state.resultDetail.title}</h1>
                                 <p>{this.state.resultDetail.authors}</p>
                             </div>
