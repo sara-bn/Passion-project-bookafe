@@ -1,16 +1,40 @@
 ﻿import React, { Component } from 'react';
 
 export class Details extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = {
+            resultDetail: {}, 
+          
+        };
     }
-
-
-    render() {
-        return (
-            <div>
-                Detail Page
-            </div>
-        );
-    }
-}
+    componentDidMount() {
+        let idm = "b8NODwAAQBAJ"
+        const URL = "https://www.googleapis.com/books/v1/volumes/" + idm;
+        fetch(URL)
+            .then(response => response.json())
+           
+            .then(data => {
+                console.log(JSON.stringify(data));
+                console.log(URL)
+                this.setState({ resultDetail: data.volumeInfo });
+                console.log(this.state.resultDetail)
+            })
+            .catch(error => {
+                alert(error);
+            });
+       }
+            render() {
+                return (
+                    <div className="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <p>  {this.props.id} </p> 
+                                <h1>{this.state.resultDetail.title}</h1>
+                                <p>{this.state.resultDetail.authors}</p>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+        }
