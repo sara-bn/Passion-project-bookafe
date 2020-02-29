@@ -29,7 +29,7 @@
                     body: JSON.stringify({
                         id: 10 ,
                         bookTitle: "Harry: A Biography of a Prince",
-                        isComplete: false,
+                        isComplete: true,
                     }
                     )
                 })
