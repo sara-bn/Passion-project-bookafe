@@ -35,7 +35,8 @@ export class Details extends Component {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        bookTitle: this.state.resultDetail.title
+                        bookTitle: this.state.resultDetail.title,
+                        IsComplete:false
                     })
               })
           
