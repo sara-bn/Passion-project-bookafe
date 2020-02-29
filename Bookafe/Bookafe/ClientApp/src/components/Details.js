@@ -7,6 +7,7 @@ export class Details extends Component {
         this.state = {
             resultDetail: {}, 
         };
+        this.SaveToList = this.SaveToList.bind(this);
     }
     componentDidMount() {
         let id = this.props.match.params.id
@@ -23,7 +24,33 @@ export class Details extends Component {
             .catch(error => {
                 alert(error);
             });
-       }
+    }
+
+    SaveToList(e) {
+        console.log(this.state.resultDetail.title)    
+        fetch('api/lists', {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        bookTitle: this.state.resultDetail.title
+                    })
+              })
+          
+                .then(response => response.json())
+               
+                .then(json => {
+                    alert(JSON.stringify(json));
+                   
+                })
+                
+                .catch(function (error) {
+                    alert(error);
+                });
+             }
+
          render() {
          
                 return (
@@ -33,7 +60,7 @@ export class Details extends Component {
                                 <h1>{this.state.resultDetail.title}</h1>
                                 <p>{this.state.resultDetail.authors}</p>
                                 <p>{this.state.resultDetail.description}</p>
-                                <p><Link key={this.state.resultDetail.title} to={"/list/" + this.state.resultDetail.title}>Add to reading list</Link></p>
+                                <button onClick={this.SaveToList}><Link key={this.state.resultDetail.title} to={"/list/"+this.state.resultDetail.title}>Add to reading list</Link></button>
                             </div>
                         </div>
                     </div>
