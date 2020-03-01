@@ -11,6 +11,10 @@ using Bookafe.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Bookafe
 {
@@ -29,7 +33,6 @@ namespace Bookafe
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(
                      Configuration.GetConnectionString("DefaultConnection")));
-            //options.UseSqlServer("Data Source=.\\wwwroot\\sql.db"));
 
             services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -39,6 +42,25 @@ namespace Bookafe
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //.AddJwtBearer(options =>
+            //{
+            //    options.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateAudience = true,
+            //        ValidateLifetime = true,
+            //        ValidateIssuerSigningKey = true,
+            //        ValidIssuer = Configuration["Jwt:Issuer"],
+            //        ValidAudience = Configuration["Jwt:Issuer"],
+            //        IssuerSigningKey
+            //    = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+            //    };
+            //});
+
 
             services.AddControllersWithViews();
             services.AddRazorPages();
