@@ -5,7 +5,6 @@ import { Home } from './components/Home';
 import { Search } from './components/Search';
 import { Details } from './components/Details';
 import { List } from './components/List';
-import { Login } from './components/Login';
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
