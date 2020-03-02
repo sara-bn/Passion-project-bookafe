@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 
+
 const AUTH_TOKEN = "auth_token";
 
 export class Login extends Component {
@@ -117,11 +118,7 @@ export class Login extends Component {
                         </tr>
                     </tbody>
                 </table>
-                {this.state.loginMessage}
                 <br />
-                {/* {this.state.token} */}
-                <br />
-
                 {this.state.loggedIn & !this.state.loggedOut && (
                     <div>
                         <button onClick={this.logout.bind(this)}>Logout</button>

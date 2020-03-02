@@ -10,8 +10,6 @@ import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
 import { Redirect } from 'react-router';
-
-
 import './custom.css'
 
 
@@ -21,16 +19,11 @@ export default class App extends Component {
   render () {
     return (
       <Layout>
-        <Route exact path='/' component={Login} />
-            <Route path='/search' component={Search} />
-
-            <Route
-                path='/search'
-                render={() => (this.loggedIn ? <Search /> : <Redirect to="/login" />)}
-            />
+            <Route exact path='/' component={Home} />
+            <Route path="/search" component={Search} />
             <Route path="/details/:id" component={Details} />
             <Route path='/list' component={List} />
-        <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+            <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );
   }
