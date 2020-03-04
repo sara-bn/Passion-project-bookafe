@@ -50,6 +50,15 @@ export class Search extends Component {
     }
 
     render() {
+        const contents = this.state.searchResult.map((data) =>
+                <tr>
+                    <td>  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
+                    <td>  {data.volumeInfo.authors} </td>
+                <td>  {data.volumeInfo.averageRating} </td>
+                {data.volumeInfo.imageLinks && <td><img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="80" width="100" /></td>}
+                </tr>
+            )
+        
         return (
             <div>
                 <input
@@ -68,15 +77,7 @@ export class Search extends Component {
                 <br />
                  <table class="table table-sm table-dark">
                     <tr><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
-                    {
-                        this.state.searchResult.map((data) =>
-                            <tr>
-                                <td>  <Link key={data.id} to={"/details/"+data.id}> {data.volumeInfo.title}</Link></td>
-                                <td>  {data.volumeInfo.authors} </td>
-                                <td>  {data.volumeInfo.averageRating} </td>
-                                <td>  <img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="80" width="100" /> </td>
-                            </tr>
-                            )}
+                   {contents}
                  </table>
               </div>
             );
