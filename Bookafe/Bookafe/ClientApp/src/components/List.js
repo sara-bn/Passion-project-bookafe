@@ -27,7 +27,7 @@
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
-                        id: 10 ,
+                        id: 2 ,
                         bookTitle: "Harry: A Biography of a Prince",
                         isComplete: true,
                     }
@@ -37,21 +37,20 @@
                     .then(json => console.log(json))                  
                   }
 
-               render() {
-
+        render() {
+                   const contents = this.state.lists.map((item) =>
+                       <tr key={item.id}  >
+                           <td> {item.bookTitle} </td>
+                           <td> <button onClick={this.changeStatus} value={item.id}> Completed </button> </td>
+                           {!item.isComplete ? <td>Not Yet!</td> : <td>Completed</td>}
+                           <td> {item.userEmail} </td>
+                       </tr>
+                   )
                 return (
                     <div>
                        <table class="table table-sm table-dark">
                             <tr><th>Title</th><th></th><th>IsComplete</th><th>UserEmail</th></tr>
-                            {
-                                this.state.lists.map((item) =>
-                                    <tr key={item.id}  >
-                                        <td> {item.bookTitle} </td>
-                                        <td> <button onClick={this.changeStatus} value={item.id}> Completed </button> </td>
-                                        <td> {item.isComplete}  </td>
-                                        <td> {item.userEmail} </td>
-                                    </tr>
-                                )}
+                            {contents}
                         </table>
                      </div>
             );
