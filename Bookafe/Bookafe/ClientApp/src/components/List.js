@@ -28,7 +28,7 @@
                     },
                     body: JSON.stringify({
                         id: 2 ,
-                        bookTitle: "Harry: A Biography of a Prince",
+                        bookTitle: "",
                         isComplete: true,
                     }
                     )
@@ -42,7 +42,7 @@
                        <tr key={item.id}  >
                            <td> {item.bookTitle} </td>
                            <td> <button onClick={this.changeStatus} value={item.id}> Completed </button> </td>
-                           {!item.isComplete ? <td>Not Yet!</td> : <td>Completed</td>}
+                           {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
                            <td> {item.userEmail} </td>
                        </tr>
                    )
