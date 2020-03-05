@@ -26,7 +26,7 @@ export class Search extends Component {
 
         else if (author) {
 
-            var URL = "https://www.googleapis.com/books/v1/volumes?q=inauthor:" + author + "&maxResults=15"
+            var URL = "https://www.googleapis.com/books/v1/volumes?q=inauthor:" + author + "&maxResults=30"
         }
         else {
             alert("please ");
@@ -50,36 +50,61 @@ export class Search extends Component {
     }
 
     render() {
-        const contents = this.state.searchResult.map((data) =>
-            <tr>
-                <td>  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
-                <td>  {data.volumeInfo.authors} </td>
-                <td>  {data.volumeInfo.averageRating} </td>
-                {data.volumeInfo.imageLinks && <td><img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="80" width="100" /></td>}
-            </tr>
-        )
 
-        return (
-            <div>
-                <input
-                    type="text"
-                    placeholder="title"
-                    ref={getTitleInput => (this.titleToSearch = getTitleInput)}
-                />
-                <br />
-                <input
-                    type="text"
-                    placeholder="author"
-                    ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
-                />
-                <br />
-                <button onClick={this.getAll}>Search</button>
-                <br />
-                <table class="table table-sm table-dark">
-                    <tr><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
-                    {contents}
-                </table>
-            </div>
-        );
+        if (this.state.searchResult) {
+
+            const contents = this.state.searchResult.map((data) =>
+                <tr>
+                    <td>  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
+                    <td>  {data.volumeInfo.authors} </td>
+                    <td>  {data.volumeInfo.averageRating} </td>
+                    {data.volumeInfo.imageLinks && <td><img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="80" width="100" /></td>}
+                </tr>
+            )
+
+            return (
+                <div>
+                    <input
+                        type="text"
+                        placeholder="title"
+                        ref={getTitleInput => (this.titleToSearch = getTitleInput)}
+                    />
+                    <br />
+                    <input
+                        type="text"
+                        placeholder="author"
+                        ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
+                    />
+                    <br />
+                    <button onClick={this.getAll}>Search</button>
+                    <br />
+                    <table class="table table-sm table-dark">
+                        <tr><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
+                        {contents}
+                    </table>
+                </div>
+            );
+        }
+        else {
+            return (
+                <div>
+                    <input
+                        type="text"
+                        placeholder="title"
+                        ref={getTitleInput => (this.titleToSearch = getTitleInput)}
+                    />
+                    <br />
+                    <input
+                        type="text"
+                        placeholder="author"
+                        ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
+                    />
+                    <br />
+                    <button onClick={this.getAll}>Search</button>
+                    <br />
+                    <p> No Result </p>
+                </div>
+            );
+        }
     }
 }
