@@ -4,20 +4,32 @@ using Bookafe.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bookafe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200305220609_addcustomusertableagain")]
+    partial class addcustomusertableagain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Bookafe.Data.CustomUser", b =>
+                {
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserName");
+
+                    b.ToTable("CustomUsers");
+                });
 
             modelBuilder.Entity("Bookafe.Data.List", b =>
                 {
@@ -40,16 +52,6 @@ namespace Bookafe.Data.Migrations
                     b.HasIndex("userEmail");
 
                     b.ToTable("Lists");
-                });
-
-            modelBuilder.Entity("Bookafe.Data.WebUser", b =>
-                {
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserName");
-
-                    b.ToTable("WebUsers");
                 });
 
             modelBuilder.Entity("Bookafe.Models.ApplicationUser", b =>
@@ -336,7 +338,7 @@ namespace Bookafe.Data.Migrations
 
             modelBuilder.Entity("Bookafe.Data.List", b =>
                 {
-                    b.HasOne("Bookafe.Data.WebUser", "WebUser")
+                    b.HasOne("Bookafe.Data.CustomUser", "CustomnUser")
                         .WithMany("Lists")
                         .HasForeignKey("userEmail")
                         .OnDelete(DeleteBehavior.Restrict);

@@ -4,14 +4,16 @@ using Bookafe.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bookafe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200305220920_addNewTablesForUsersandBooks")]
+    partial class addNewTablesForUsersandBooks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,17 @@ namespace Bookafe.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Bookafe.Data.List", b =>
+            modelBuilder.Entity("Bookafe.Data.CustomUser", b =>
+                {
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserName");
+
+                    b.ToTable("CustomUsers");
+                });
+
+            modelBuilder.Entity("Bookafe.Data.Plan", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,17 +51,7 @@ namespace Bookafe.Data.Migrations
 
                     b.HasIndex("userEmail");
 
-                    b.ToTable("Lists");
-                });
-
-            modelBuilder.Entity("Bookafe.Data.WebUser", b =>
-                {
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserName");
-
-                    b.ToTable("WebUsers");
+                    b.ToTable("Plan");
                 });
 
             modelBuilder.Entity("Bookafe.Models.ApplicationUser", b =>
@@ -334,10 +336,10 @@ namespace Bookafe.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Bookafe.Data.List", b =>
+            modelBuilder.Entity("Bookafe.Data.Plan", b =>
                 {
-                    b.HasOne("Bookafe.Data.WebUser", "WebUser")
-                        .WithMany("Lists")
+                    b.HasOne("Bookafe.Data.CustomUser", "CustomnUser")
+                        .WithMany("Plans")
                         .HasForeignKey("userEmail")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
