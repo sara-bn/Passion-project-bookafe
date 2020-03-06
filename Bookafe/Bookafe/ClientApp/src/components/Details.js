@@ -64,7 +64,7 @@ export class Details extends Component {
                         <h1>{this.state.resultDetail.title}</h1>
                         <p>{this.state.resultDetail.authors}</p>
                         <p>{this.state.resultDetail.description}</p>
-                        <button onClick={this.SaveToList}><Link key={this.state.resultDetail.title} to={"/list/" + this.state.resultDetail.title}>Add to reading list</Link></button>
+                        <button onClick={this.SaveToList}><Link key={this.state.resultDetail.title} to={"/list/"}>Add to reading list</Link></button>
                     </div>
                 </div>
             </div>

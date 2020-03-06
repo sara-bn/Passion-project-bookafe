@@ -8,6 +8,7 @@ export class List extends Component {
         };
         this.changeStatus = this.changeStatus.bind(this);
         this.showList = this.showList.bind(this);
+        this.removeItem = this.removeItem.bind(this);
     }
     componentDidMount() {
         this.showList();
@@ -49,6 +50,13 @@ export class List extends Component {
                 alert(error);
             });
     }
+    removeItem(event) {
+        var idToRemove = event.target.id;
+        fetch("api/lists/" + idToRemove, {
+            method: "DELETE",
+        })
+            .then(response => response.json())
+    }
 
     render() {
         const theUser = localStorage.getItem('myuser');
@@ -58,13 +66,13 @@ export class List extends Component {
                 <td> {item.bookTitle} </td>
                 <td> <button onClick={this.changeStatus} id={item.id} value={item.bookTitle}> Completed </button> </td>
                 {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
-                <td> {item.userEmail} </td>
+                <td> <button onClick={this.removeItem} id={item.id} > Remove </button> </td>
             </tr>
         )
         return (
             <div>
                 <table class="table table-sm table-dark">
-                    <tr><th>Title</th><th></th><th>IsComplete</th><th>UserEmail</th></tr>
+                    <tr><th>Title</th><th></th><th>IsComplete</th><th></th></tr>
                     {contents}
                 </table>
             </div>
