@@ -7,8 +7,13 @@ export class List extends Component {
             lists: []
         };
         this.changeStatus = this.changeStatus.bind(this);
+        this.showList = this.showList.bind(this);
     }
     componentDidMount() {
+        this.showList();
+    }
+
+    showList() {
         fetch('api/lists')
             .then(response => response.json())
             .then(data => {
@@ -19,8 +24,11 @@ export class List extends Component {
     }
 
     changeStatus(event) {
-        var idToChange = event.target.value;
+        const theUser = localStorage.getItem('myuser');
+        var idToChange = event.target.id;
+        var title = event.target.getAttribute("value")
         console.log(idToChange)
+        console.log(title)
         fetch("api/lists/" + idToChange, {
             method: "PUT",
             headers: {
@@ -28,21 +36,27 @@ export class List extends Component {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                id: 2,
-                bookTitle: "",
+                id: parseInt(idToChange),
+                bookTitle: title,
                 isComplete: true,
+                userEmail: theUser
             }
             )
         })
             .then(response => response.json())
-            .then(json => console.log(json))
+            .then(json => this.getAll())
+            .catch(function (error) {
+                alert(error);
+            });
     }
 
     render() {
-        const contents = this.state.lists.map((item) =>
+        const theUser = localStorage.getItem('myuser');
+        const filterdList = this.state.lists.filter(list => list.userEmail==theUser);
+        const contents = filterdList.map((item) =>
             <tr key={item.id}  >
                 <td> {item.bookTitle} </td>
-                <td> <button onClick={this.changeStatus} value={item.id}> Completed </button> </td>
+                <td> <button onClick={this.changeStatus} id={item.id} value={item.bookTitle}> Completed </button> </td>
                 {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
                 <td> {item.userEmail} </td>
             </tr>

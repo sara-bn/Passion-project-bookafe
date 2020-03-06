@@ -29,7 +29,7 @@ export class Details extends Component {
 
     SaveToList(e) {
         console.log(this.state.resultDetail.title);
-        //const theUser = "sarajun";//localStorage.getItem('myuser');
+        const theUser = localStorage.getItem('myuser');
         fetch('api/lists', {
             method: "POST",
             headers: {
@@ -37,9 +37,9 @@ export class Details extends Component {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "userEmail": this.state.resultDetail.title,
                 "bookTitle" : this.state.resultDetail.title,
-                "IsComplete" : false
+                "IsComplete": false,
+                "userEmail": theUser
             })
         })
 
