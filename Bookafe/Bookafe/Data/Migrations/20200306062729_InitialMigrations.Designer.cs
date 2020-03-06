@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bookafe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200305220920_addNewTablesForUsersandBooks")]
-    partial class addNewTablesForUsersandBooks
+    [Migration("20200306062729_InitialMigrations")]
+    partial class InitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,17 +21,7 @@ namespace Bookafe.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Bookafe.Data.CustomUser", b =>
-                {
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserName");
-
-                    b.ToTable("CustomUsers");
-                });
-
-            modelBuilder.Entity("Bookafe.Data.Plan", b =>
+            modelBuilder.Entity("Bookafe.Data.List", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,13 +35,11 @@ namespace Bookafe.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("userEmail")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("userEmail");
-
-                    b.ToTable("Plan");
+                    b.ToTable("Lists");
                 });
 
             modelBuilder.Entity("Bookafe.Models.ApplicationUser", b =>
@@ -334,14 +322,6 @@ namespace Bookafe.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Bookafe.Data.Plan", b =>
-                {
-                    b.HasOne("Bookafe.Data.CustomUser", "CustomnUser")
-                        .WithMany("Plans")
-                        .HasForeignKey("userEmail")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

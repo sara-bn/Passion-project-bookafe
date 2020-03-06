@@ -14,13 +14,14 @@ import './custom.css'
 export default class App extends Component {
   static displayName = App.name;
 
-  render () {
+    render() {
+        let user;
     return (
       <Layout>
         <Route exact path='/' component={Home} />
-            <AuthorizeRoute path='/search' component={Search} />
-            <AuthorizeRoute path="/details/:id" component={Details} />
-            <AuthorizeRoute path='/list' component={List} />
+            <Route path='/search' component={Search} />
+            <Route path="/details/:id" component={Details} />
+            <Route path='/list' component={List} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );

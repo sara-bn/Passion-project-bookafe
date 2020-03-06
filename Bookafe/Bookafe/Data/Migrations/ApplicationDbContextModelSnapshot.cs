@@ -33,23 +33,11 @@ namespace Bookafe.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("userEmail")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("userEmail");
-
                     b.ToTable("Lists");
-                });
-
-            modelBuilder.Entity("Bookafe.Data.WebUser", b =>
-                {
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserName");
-
-                    b.ToTable("WebUsers");
                 });
 
             modelBuilder.Entity("Bookafe.Models.ApplicationUser", b =>
@@ -332,14 +320,6 @@ namespace Bookafe.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Bookafe.Data.List", b =>
-                {
-                    b.HasOne("Bookafe.Data.WebUser", "WebUser")
-                        .WithMany("Lists")
-                        .HasForeignKey("userEmail")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

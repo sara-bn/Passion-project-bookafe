@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bookafe.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200305220609_addcustomusertableagain")]
-    partial class addcustomusertableagain
+    [Migration("20200306063853_addTable")]
+    partial class addTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,16 +20,6 @@ namespace Bookafe.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Bookafe.Data.CustomUser", b =>
-                {
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserName");
-
-                    b.ToTable("CustomUsers");
-                });
 
             modelBuilder.Entity("Bookafe.Data.List", b =>
                 {
@@ -45,11 +35,9 @@ namespace Bookafe.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("userEmail")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("userEmail");
 
                     b.ToTable("Lists");
                 });
@@ -334,14 +322,6 @@ namespace Bookafe.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Bookafe.Data.List", b =>
-                {
-                    b.HasOne("Bookafe.Data.CustomUser", "CustomnUser")
-                        .WithMany("Lists")
-                        .HasForeignKey("userEmail")
-                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

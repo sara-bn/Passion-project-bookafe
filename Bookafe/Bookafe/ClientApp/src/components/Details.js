@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { LoginMenu } from './api-authorization/LoginMenu';
 
 export class Details extends Component {
     constructor(props) {
@@ -27,7 +28,8 @@ export class Details extends Component {
     }
 
     SaveToList(e) {
-        console.log(this.state.resultDetail.title)
+        console.log(this.state.resultDetail.title);
+        //const theUser = "sarajun";//localStorage.getItem('myuser');
         fetch('api/lists', {
             method: "POST",
             headers: {
@@ -35,8 +37,9 @@ export class Details extends Component {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                bookTitle: this.state.resultDetail.title,
-                IsComplete: false
+                "userEmail": this.state.resultDetail.title,
+                "bookTitle" : this.state.resultDetail.title,
+                "IsComplete" : false
             })
         })
 

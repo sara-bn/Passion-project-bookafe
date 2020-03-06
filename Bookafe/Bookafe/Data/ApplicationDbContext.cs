@@ -11,6 +11,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Bookafe.Data
+
+
 {
 
     public class List
@@ -20,48 +22,19 @@ namespace Bookafe.Data
         public string bookTitle { get; set; }
         public bool IsComplete { get; set; }
         public string userEmail { get; set; }
-
-        public virtual WebUser WebUser { get; set; }
     }
 
-    public class WebUser
-    {
-        [Key]
-        [Display(Name = "User Name")]
-        public string UserName { get; set; }
-
-        public virtual ICollection<List> Lists { get; set; }
-
-    }
-        public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         public ApplicationDbContext(
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
+
         }
+
         public DbSet<List> Lists { get; set; }
-        public DbSet<WebUser> WebUsers { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // required.
-            base.OnModelCreating(modelBuilder);
 
-            //-------------------------------------------------------
-            // *** Define composite primary keys here. ***
 
-            // This is sample syntax for defining a primary key.
-            // modelBuilder.Entity<ProductSupplier>()
-            //             .HasKey(ps => new { ps.ProductID, ps.SupplierID });
-
-            //-------------------------------------------------------
-            // *** Define composite foreign keys here. ***
-            modelBuilder.Entity<List>()
-                .HasOne(c => c.WebUser)
-                .WithMany(c => c.Lists)
-                .HasForeignKey(fk => new { fk.userEmail })
-                .OnDelete(DeleteBehavior.Restrict); // Prevent cascade delete
-        }
     }
-
 }

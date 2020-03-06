@@ -2,7 +2,7 @@
 
 namespace Bookafe.Data.Migrations
 {
-    public partial class addtablesagain : Migration
+    public partial class InitialMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
