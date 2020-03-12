@@ -30,7 +30,7 @@ export class Search extends Component {
             var URL = BASE_URL+"inauthor:" + author + "&maxResults=30"
         }
         else {
-            alert("please enter author or title");
+            alert("Please enter author or title");
         }
 
         // This code gets data from the remote server.
@@ -56,31 +56,31 @@ export class Search extends Component {
 
             const contents = this.state.searchResult.map((data) =>
                 <tr>
+                    {data.volumeInfo.imageLinks && <td><img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="140" width="110" /></td>}
                     <td>  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
                     <td>  {data.volumeInfo.authors} </td>
                     <td>  {data.volumeInfo.averageRating} </td>
-                    {data.volumeInfo.imageLinks && <td><img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="80" width="100" /></td>}
+                   
                 </tr>
             )
 
             return (
                 <div>
-                    <input
+                    <div className="searchBar">
+                    <input className="input"
                         type="text"
-                        placeholder="title"
+                        placeholder="Title"
                         ref={getTitleInput => (this.titleToSearch = getTitleInput)}
                     />
-                    <br />
-                    <input
+                        <input className="input"
                         type="text"
-                        placeholder="author"
+                        placeholder="Author"
                         ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
                     />
-                    <br />
-                    <button onClick={this.getAll}>Search</button>
-                    <br />
+                        <button className="searchButton" onClick={this.getAll}><i class="fa fa-search fa-lg"></i></button>
+                        </div>
                     <table class="table table-sm">
-                        <tr className="tableHead"><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
+                        <tr className="tableHead"><th>Book Cover</th><th>Title</th><th>Author</th><th>Rating</th></tr>
                         {contents}
                     </table>
                 </div>
@@ -90,17 +90,17 @@ export class Search extends Component {
             return (
                     <div>
                     <div className="searchBar">
-                        <input  className="searchBar"
+                        <input className="input"
                             type="text"
-                            placeholder="title"
+                            placeholder="Title"
                             ref={getTitleInput => (this.titleToSearch = getTitleInput)}
                         />
-                        <input
+                        <input className="input"
                             type="text"
-                            placeholder="author"
+                            placeholder="Author"
                             ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
                         />
-                        <button onClick={this.getAll}><i class="fa fa-search"></i></button>
+                        <button className="searchButton" onClick={this.getAll}><i class="fa fa-search fa-lg"></i></button>
                         </div>
                         <p> No Result </p>
                     </div>
