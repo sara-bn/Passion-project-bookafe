@@ -23,7 +23,7 @@ namespace Bookafe.Data
         public bool IsComplete { get; set; }
         public string userEmail { get; set; }
 
-        public DateTime addedAt { get; set; }
+        public string addedAt { get; set; }
     }
 
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>

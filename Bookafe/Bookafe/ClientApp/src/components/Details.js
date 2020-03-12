@@ -2,6 +2,9 @@
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import { LoginMenu } from './api-authorization/LoginMenu';
+import moment from 'moment';
+import DateTimePicker from 'react-datetime-picker';
+
 
 export class Details extends Component {
     constructor(props) {
@@ -44,8 +47,7 @@ export class Details extends Component {
                 "bookTitle" : this.state.resultDetail.title,
                 "IsComplete": false,
                 "userEmail": theUser,
-                "createdAt": new Date()
-                
+                "addedAt":new Date().getDate().toString
             })
         })
             .then(response => response.json())

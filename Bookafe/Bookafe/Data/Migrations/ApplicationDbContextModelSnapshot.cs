@@ -29,8 +29,8 @@ namespace Bookafe.Data.Migrations
                     b.Property<bool>("IsComplete")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("addedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("addedAt")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("bookTitle")
                         .HasColumnType("nvarchar(max)");
