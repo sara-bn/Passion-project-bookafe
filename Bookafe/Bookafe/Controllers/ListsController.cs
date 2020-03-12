@@ -28,17 +28,17 @@ namespace Bookafe.Controllers
         }
 
         // GET: api/Lists/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<List>> GetList(int id)
+        [HttpGet("{userEmail}")]
+        public IActionResult GetList(string userEmail)
         {
-            var list = await _context.Lists.FindAsync(id);
+            var list = _context.Lists.Where(book => book.userEmail == userEmail);
 
             if (list == null)
             {
                 return NotFound();
             }
 
-            return list;
+            return Ok(list);
         }
 
         // PUT: api/Lists/5

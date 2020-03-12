@@ -22,6 +22,8 @@ namespace Bookafe.Data
         public string bookTitle { get; set; }
         public bool IsComplete { get; set; }
         public string userEmail { get; set; }
+
+        public DateTime addedAt { get; set; }
     }
 
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>

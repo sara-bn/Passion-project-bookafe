@@ -11,22 +11,23 @@ export class Search extends Component {
     }
 
     getAll() {
+        const BASE_URL = "https://www.googleapis.com/books/v1/volumes?q="
         let title = this.titleToSearch.value;
         let author = this.auhtorToSearch.value;
 
         if (title && author) {
 
-            var URL = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + title + "+inauthor:" + author + "&maxResults=15"
+            var URL = BASE_URL+"intitle:" + title + "+inauthor:" + author + "&maxResults=30"
         }
 
         else if (title) {
 
-            var URL = "https://www.googleapis.com/books/v1/volumes?q=intitle:" + title + "&maxResults=15"
+            var URL = BASE_URL+"intitle:" + title + "&maxResults=30"
         }
 
         else if (author) {
 
-            var URL = "https://www.googleapis.com/books/v1/volumes?q=inauthor:" + author + "&maxResults=30"
+            var URL = BASE_URL+"inauthor:" + author + "&maxResults=30"
         }
         else {
             alert("please ");
@@ -84,27 +85,27 @@ export class Search extends Component {
                     </table>
                 </div>
             );
-        }
-        else {
-            return (
-                <div>
-                    <input
-                        type="text"
-                        placeholder="title"
-                        ref={getTitleInput => (this.titleToSearch = getTitleInput)}
-                    />
-                    <br />
-                    <input
-                        type="text"
-                        placeholder="author"
-                        ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
-                    />
-                    <br />
-                    <button onClick={this.getAll}>Search</button>
-                    <br />
-                    <p> No Result </p>
-                </div>
-            );
+            }
+            else {
+                return (
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="title"
+                            ref={getTitleInput => (this.titleToSearch = getTitleInput)}
+                        />
+                        <br />
+                        <input
+                            type="text"
+                            placeholder="author"
+                            ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
+                        />
+                        <br />
+                        <button onClick={this.getAll}>Search</button>
+                        <br />
+                        <p> No Result </p>
+                    </div>
+                );
+            }
         }
     }
-}

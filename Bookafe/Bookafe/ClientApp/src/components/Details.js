@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 import { LoginMenu } from './api-authorization/LoginMenu';
 
 export class Details extends Component {
@@ -10,27 +11,30 @@ export class Details extends Component {
         };
         this.SaveToList = this.SaveToList.bind(this);
     }
-    componentDidMount() {
+    async componentDidMount() {
         let id = this.props.match.params.id
+        let response;
         const URL = "https://www.googleapis.com/books/v1/volumes/"+id;
-        fetch(URL)
+        await fetch(URL)
             .then(response => response.json())
 
             .then(data => {
-                console.log(JSON.stringify(data));
-                console.log(URL)
-                this.setState({ resultDetail: data.volumeInfo });
-                console.log(this.state.resultDetail)
+                response = data
             })
             .catch(error => {
                 alert(error);
             });
+
+        console.log(JSON.stringify(response));
+        console.log(URL)
+        this.setState({ resultDetail: response.volumeInfo });
+        console.log(this.state.resultDetail)
     }
 
-    SaveToList(e) {
+    async SaveToList(e) {
         console.log(this.state.resultDetail.title);
         const theUser = localStorage.getItem('myuser');
-        fetch('api/lists', {
+        await fetch('api/lists', {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -39,17 +43,17 @@ export class Details extends Component {
             body: JSON.stringify({
                 "bookTitle" : this.state.resultDetail.title,
                 "IsComplete": false,
-                "userEmail": theUser
+                "userEmail": theUser,
+                "createdAt": new Date()
+                
             })
         })
-
             .then(response => response.json())
 
             .then(json => {
                 alert(JSON.stringify(json));
-
+                this.props.history.push('/list');
             })
-
             .catch(function (error) {
                 alert(error);
             });
@@ -59,12 +63,12 @@ export class Details extends Component {
 
         return (
             <div className="container">
-                <div class="row">
-                    <div class="col-12">
+                <div className="row">
+                    <div className="col-12">
                         <h1>{this.state.resultDetail.title}</h1>
                         <p>{this.state.resultDetail.authors}</p>
                         <p>{this.state.resultDetail.description}</p>
-                        <button onClick={this.SaveToList}><Link key={this.state.resultDetail.title} to={"/list/"}>Add to reading list</Link></button>
+                        <button onClick={this.SaveToList}>Add to reading list</button>
                     </div>
                 </div>
             </div>
