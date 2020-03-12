@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 
+
 export class List extends Component {
     constructor() {
         super();
@@ -69,19 +70,19 @@ export class List extends Component {
         //const filterdList = this.state.lists.filter(list => list.userEmail==theUser);
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         const contents = this.state.lists.map((item) =>
-            <tr key={item.id}  >
+            <tr className="tableRow" style={{ backgroundColor: item.isComplete ? "#CCFFFF" : "white" }} key={item.id}  >
                 <td> {item.bookTitle} </td>
                 <td> {new Date().getDate() + "-" + months[(new Date().getMonth())] + "-" + new Date().getFullYear()} </td>
                 {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
-                <td> <button onClick={this.changeStatus} id={item.id} value={item.bookTitle}> Completed </button> </td>
-                <td> <button onClick={this.removeItem} id={item.id} > Remove </button> </td>
+                <td> <button style={{ backgroundColor: item.isComplete ? "#CCFFFF" : "white" }} className="changeButton" onClick={this.changeStatus} id={item.id} value={item.bookTitle}><i className='fa fa-check'></i></button> </td>
+                <td> <button style={{ backgroundColor: item.isComplete ? "#CCFFFF" : "white" }} className="removeButton" onClick={this.removeItem} id={item.id} > <i className='far fa-trash-alt'></i> </button> </td>
                 
             </tr>
         )
         return (
             <div>
-                <table class="table table-sm table-dark">
-                    <tr>
+                <table class="table table-sm">
+                    <tr className="tableHead">
                         <th>Title</th>
                         <th>Date</th>
                         <th>IsComplete</th>

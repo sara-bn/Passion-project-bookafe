@@ -1,4 +1,4 @@
-/* Provide sufficient contrast against white background */
+﻿/* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
 }
@@ -12,3 +12,40 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.fa-check {
+    color: #646DEC;
+}
+.fa-trash-alt {
+    color: #3369ff;
+}
+.tableHead {
+    background-color: #3369ff;
+    color: #FFFFFF;
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+.addButton {
+    border-radius: 4px;
+    background-color: #3369ff;
+    color: #FFFFFF;
+    padding: 5px;
+}
+
+.changeButton {
+    border: none;
+    background-color: #FFFFFF;
+}
+.removeButton {
+    background-color: #FFFFFF;
+    border: none;
+}
+.searchBar {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+}
+
+

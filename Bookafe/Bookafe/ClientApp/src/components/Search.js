@@ -30,7 +30,7 @@ export class Search extends Component {
             var URL = BASE_URL+"inauthor:" + author + "&maxResults=30"
         }
         else {
-            alert("please ");
+            alert("please enter author or title");
         }
 
         // This code gets data from the remote server.
@@ -79,30 +79,29 @@ export class Search extends Component {
                     <br />
                     <button onClick={this.getAll}>Search</button>
                     <br />
-                    <table class="table table-sm table-dark">
-                        <tr><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
+                    <table class="table table-sm">
+                        <tr className="tableHead"><th>Title</th><th>Author</th><th>Rating</th><th>Image</th></tr>
                         {contents}
                     </table>
                 </div>
             );
             }
             else {
-                return (
+            return (
                     <div>
-                        <input
+                    <div className="searchBar">
+                        <input  className="searchBar"
                             type="text"
                             placeholder="title"
                             ref={getTitleInput => (this.titleToSearch = getTitleInput)}
                         />
-                        <br />
                         <input
                             type="text"
                             placeholder="author"
                             ref={getAuthorInput => (this.auhtorToSearch = getAuthorInput)}
                         />
-                        <br />
-                        <button onClick={this.getAll}>Search</button>
-                        <br />
+                        <button onClick={this.getAll}><i class="fa fa-search"></i></button>
+                        </div>
                         <p> No Result </p>
                     </div>
                 );
