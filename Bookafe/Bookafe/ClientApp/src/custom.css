@@ -12,6 +12,10 @@ body, html {
     background-size: cover;
     opacity: 0.5;
 }
+.covers {
+    height:200px;
+    width: 160px;
+}
 a {
   color: #0366d6;
 }

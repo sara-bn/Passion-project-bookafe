@@ -56,7 +56,7 @@ export class Search extends Component {
 
             const contents = this.state.searchResult.map((data) =>
                 <tr>
-                    {data.volumeInfo.imageLinks && <td><img src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" height="140" width="110" /></td>}
+                    {data.volumeInfo.imageLinks && <td><img className="covers" src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" /></td>}
                     <td>  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
                     <td>  {data.volumeInfo.authors} </td>
                     <td>  {data.volumeInfo.averageRating} </td>
