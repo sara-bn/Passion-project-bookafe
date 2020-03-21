@@ -168,17 +168,23 @@ export class List extends Component {
         const contents = this.state.lists.map((item) =>
             <tr key={item.id}  >
                 <td> {item.bookTitle} </td>
-                <td> xx</td>
-                <td> <button onClick={this.changeStatus} id={item.id} value={item.bookTitle}> Completed </button> </td>
-                {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
-                <td> <button onClick={this.removeItem} id={item.id} > Remove </button> </td>
                 <td> {item.createdAt} </td>
+                {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
+                <td> <button onClick={this.changeStatus} id={item.id} value={item.bookTitle}> Completed </button> </td>
+                <td> <button onClick={this.removeItem} id={item.id} > Remove </button> </td>
+                
             </tr>
         )
         return (
             <div>
                 <table class="table table-sm table-dark">
-                    <tr><th>Title</th><th></th><th></th><th>IsComplete</th><th>Date</th><th></th></tr>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Is it completed?</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                     {contents}
                 </table>
             </div>

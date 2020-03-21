@@ -47,7 +47,7 @@ export class Details extends Component {
                 "bookTitle" : this.state.resultDetail.title,
                 "IsComplete": false,
                 "userEmail": theUser,
-                "addedAt":new Date().getDate().toString
+                "createdAt":new Date().getDate().toString
             })
         })
             .then(response => response.json())
