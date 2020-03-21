@@ -11,10 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Bookafe.Data
-
-
 {
-
     public class List
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,8 +19,7 @@ namespace Bookafe.Data
         public string bookTitle { get; set; }
         public bool IsComplete { get; set; }
         public string userEmail { get; set; }
-
-        public string addedAt { get; set; }
+        public string createdAt { get; set; }
     }
 
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
@@ -32,11 +28,9 @@ namespace Bookafe.Data
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
-
         }
 
         public DbSet<List> Lists { get; set; }
-
 
     }
 }

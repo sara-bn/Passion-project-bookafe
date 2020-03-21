@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Bookafe.Data.Migrations
+namespace Bookafe.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200312060710_addnewtablecollumn")]
-    partial class addnewtablecollumn
+    [Migration("20200321083810_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,10 +31,10 @@ namespace Bookafe.Data.Migrations
                     b.Property<bool>("IsComplete")
                         .HasColumnType("bit");
 
-                    b.Property<string>("addedAt")
+                    b.Property<string>("bookTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("bookTitle")
+                    b.Property<string>("createdAt")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("userEmail")

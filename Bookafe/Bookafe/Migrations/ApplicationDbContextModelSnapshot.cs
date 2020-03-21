@@ -4,16 +4,14 @@ using Bookafe.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Bookafe.Data.Migrations
+namespace Bookafe.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200306063853_addTable")]
-    partial class addTable
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,6 +30,9 @@ namespace Bookafe.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("bookTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("createdAt")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("userEmail")
