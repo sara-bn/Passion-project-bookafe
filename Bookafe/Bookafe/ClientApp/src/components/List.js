@@ -1,69 +1,4 @@
-﻿//import React, { Component } from 'react';
-
-
-//export class List extends Component {
-//    constructor() {
-//        super();
-//        this.state = {
-//            lists: []
-//        };
-//        this.changeStatus = this.changeStatus.bind(this);
-//        this.showList = this.showList.bind(this);
-//        this.removeItem = this.removeItem.bind(this);
-//    }
-//    componentDidMount() {
-//        this.showList();
-//    }
-
-//    async showList() {
-//        const theUser = localStorage.getItem('myuser');
-
-//        await fetch('api/lists/' + theUser)
-//            .then(response => response.json())
-//            .then(data => {
-//                this.setState({
-//                    lists: data
-//                });
-//            });
-//    }
-
-//    async changeStatus(event) {
-//        const theUser = localStorage.getItem('myuser');
-//        var idToChange = event.target.id;
-//        var title = event.target.getAttribute("value")
-//        console.log(idToChange)
-//        console.log(title)
-//        await fetch("api/lists/" + idToChange, {
-//            method: "PUT",
-//            headers: {
-//                Accept: "application/json",
-//                "Content-Type": "application/json",
-//            },
-//            body: JSON.stringify({
-//                id: parseInt(idToChange),
-//                bookTitle: title,
-//                isComplete: true,
-//                userEmail: theUser
-//            }
-//            )
-//        })
-//            .catch(function (error) {
-//                alert(error);
-//            });
-
-//        this.showList();
-//    }
-//    async removeItem(event) {
-//        var idToRemove = event.target.id;
-//        await fetch("api/lists/" + idToRemove, {
-//            method: "DELETE",
-//        })
-//        this.setState({
-//            lists: this.state.lists.filter(book => book.id != idToRemove)
-//        });
-
-//        console.log(this.state.lists);
-//    }
+﻿
 
 //    render() {
 //        //const theUser = localStorage.getItem('myuser');
@@ -79,21 +14,6 @@
                 
 //            </tr>
 //        )
-//        return (
-//            <div>
-//                <table class="table table-sm">
-//                    <tr className="tableHead">
-//                        <th>Title</th>
-//                        <th>Date</th>
-//                        <th>IsComplete</th>
-//                        <th></th>
-//                        <th></th>
-//                        <th></th>
-//                    </tr>
-//                    {contents}
-//                </table>
-//            </div>
-//        );
 //    }
 //}
 import React, { Component } from 'react';

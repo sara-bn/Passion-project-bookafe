@@ -37,6 +37,7 @@ export class Details extends Component {
     async SaveToList(e) {
         console.log(this.state.resultDetail.title);
         const theUser = localStorage.getItem('myuser');
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         await fetch('api/lists', {
             method: "POST",
             headers: {
@@ -47,7 +48,7 @@ export class Details extends Component {
                 "bookTitle" : this.state.resultDetail.title,
                 "IsComplete": false,
                 "userEmail": theUser,
-                "createdAt": new Date().getDate()
+                "createdAt": new Date().getDate() + "-" + months[(new Date().getMonth())] + "-" + new Date().getFullYear()
             })
         })
             .then(response => response.json())
