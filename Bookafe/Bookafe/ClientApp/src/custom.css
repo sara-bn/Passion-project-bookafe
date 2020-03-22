@@ -10,7 +10,14 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.5;
+}
+.main {
+    color: white;
+    width: 50%;
+    position: absolute;
+    top: 130px;
+    right: 80px;
+    padding:20px;
 }
 .covers {
     height:200px;
