@@ -55,9 +55,9 @@ export class Search extends Component {
         if (this.state.searchResult) {
 
             const contents = this.state.searchResult.map((data) =>
-                <tr>
+                <tr className="td-for-seach-table">
                     {data.volumeInfo.imageLinks && <td><img className="covers" src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" /></td>}
-                    <td>  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
+                    <td >  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
                     <td>  {data.volumeInfo.authors} </td>
                     <td>  {data.volumeInfo.averageRating} </td>
                    
@@ -79,7 +79,7 @@ export class Search extends Component {
                     />
                         <button className="searchButton" onClick={this.getAll}><i class="fa fa-search fa-lg"></i></button>
                         </div>
-                    <table class="table table-sm">
+                    <table class="table table-sm ">
                         <tr className="tableHead"><th>Book Cover</th><th>Title</th><th>Author</th><th>Rating</th></tr>
                         {contents}
                     </table>

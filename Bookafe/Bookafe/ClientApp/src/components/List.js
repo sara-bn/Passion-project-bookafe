@@ -1,22 +1,4 @@
-﻿
-
-//    render() {
-//        //const theUser = localStorage.getItem('myuser');
-//        //const filterdList = this.state.lists.filter(list => list.userEmail==theUser);
-//        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-//        const contents = this.state.lists.map((item) =>
-//            <tr className="tableRow" style={{ backgroundColor: item.isComplete ? "#CCFFFF" : "white" }} key={item.id}  >
-//                <td> {item.bookTitle} </td>
-//                <td> {new Date().getDate() + "-" + months[(new Date().getMonth())] + "-" + new Date().getFullYear()} </td>
-//                {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
-//                <td> <button style={{ backgroundColor: item.isComplete ? "#CCFFFF" : "white" }} className="changeButton" onClick={this.changeStatus} id={item.id} value={item.bookTitle}><i className='fa fa-check'></i></button> </td>
-//                <td> <button style={{ backgroundColor: item.isComplete ? "#CCFFFF" : "white" }} className="removeButton" onClick={this.removeItem} id={item.id} > <i className='far fa-trash-alt'></i> </button> </td>
-                
-//            </tr>
-//        )
-//    }
-//}
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 
 export class List extends Component {
     constructor() {
@@ -86,19 +68,18 @@ export class List extends Component {
         //const theUser = localStorage.getItem('myuser');
         //const filterdList = this.state.lists.filter(list => list.userEmail==theUser);
         const contents = this.state.lists.map((item) =>
-            <tr key={item.id}  >
+            <tr tr className="tableRow" style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#FF7F50" }} key={item.id}  >
                 <td> {item.bookTitle} </td>
                 <td> {item.createdAt} </td>
                 {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
-                <td> <button onClick={this.changeStatus} id={item.id} value={item.bookTitle}> Completed </button> </td>
-                <td> <button onClick={this.removeItem} id={item.id} > Remove </button> </td>
-                
+                <td> <i className='fa fa-check changeButton' onClick={this.changeStatus} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#FF7F50" }} id={item.id} value={item.bookTitle}></i></td>
+                <td> <i className='far fa-trash-alt removeButton' onClick={this.removeItem} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#FF7F50" }} id={item.id}></i></td>
             </tr>
         )
         return (
             <div>
-                <table class="table table-sm table-dark">
-                    <tr>
+                <table class="table table-sm">
+                    <tr className="tableHead">
                         <th>Title</th>
                         <th>Date</th>
                         <th>Is it completed?</th>
