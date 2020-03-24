@@ -11,7 +11,7 @@ export class Home extends Component {
                   <br/>
                   <h4> We are here to help you!</h4>
                   <br/>
-                  <p> Search through hundreds of thousands of books, find a shoert description and make some choices and make you own list</p>     
+                  <p> Search through hundreds of thousands of books, read a short description, make some choices and make you own list!</p>     
               </div>
        </div>
     );

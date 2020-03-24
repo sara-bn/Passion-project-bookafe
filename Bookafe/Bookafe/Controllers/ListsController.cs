@@ -74,8 +74,6 @@ namespace Bookafe.Controllers
         }
 
         // POST: api/Lists
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<List>> PostList(List list)
         {
@@ -83,20 +81,6 @@ namespace Bookafe.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction("GetList", new { id = list.Id }, list);
         }
-
-        //public bool Create(List list, WebUser webUser)
-        //{
-        //    List newList = new List
-        //    {
-        //        Id = list.Id,
-        //        bookTitle = list.bookTitle,
-        //        IsComplete = list.IsComplete,
-        //        userEmail = webUser.UserName
-        //    };
-        //    _context.Lists.Add(newList);
-        //    _context.SaveChanges();
-        //    return true;
-        //}
 
         // DELETE: api/Lists/5
         [HttpDelete("{id}")]

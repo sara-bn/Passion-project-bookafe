@@ -65,21 +65,19 @@ export class List extends Component {
     }
 
     render() {
-        //const theUser = localStorage.getItem('myuser');
-        //const filterdList = this.state.lists.filter(list => list.userEmail==theUser);
         const contents = this.state.lists.map((item) =>
-            <tr tr className="tableRow" style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#FF7F50" }} key={item.id}  >
+            <tr tr className="tableRow" style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#F4A363" }} key={item.id}  >
                 <td> {item.bookTitle} </td>
                 <td> {item.createdAt} </td>
                 {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
-                <td> <i className='fa fa-check changeButton' onClick={this.changeStatus} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#FF7F50" }} id={item.id} value={item.bookTitle}></i></td>
-                <td> <i className='far fa-trash-alt removeButton' onClick={this.removeItem} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#FF7F50" }} id={item.id}></i></td>
+                <td> <i className='fa fa-check changeButton' onClick={this.changeStatus} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#F4A363" }} id={item.id} value={item.bookTitle}></i></td>
+                <td> <i className='far fa-trash-alt removeButton' onClick={this.removeItem} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#F4A363" }} id={item.id}></i></td>
             </tr>
         )
         return (
             <div>
                 <table class="table table-sm">
-                    <tr className="tableHead">
+                    <tr className="tableHead-list">
                         <th>Title</th>
                         <th>Date</th>
                         <th>Is it completed?</th>

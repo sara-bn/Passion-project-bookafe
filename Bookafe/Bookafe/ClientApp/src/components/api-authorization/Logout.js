@@ -53,9 +53,9 @@ export class Logout extends Component {
             const action = this.props.action;
             switch (action) {
                 case LogoutActions.Logout:
-                    return (<div>Processing logout</div>);
+                    return (<p class="loading"> Please wait </p>);
                 case LogoutActions.LogoutCallback:
-                    return (<div>Processing logout callback</div>);
+                    return (<p class="loading"> Please wait </p>);
                 case LogoutActions.LoggedOut:
                     return (<div>{message}</div>);
                 default:

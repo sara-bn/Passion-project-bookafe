@@ -54,22 +54,20 @@ export class Details extends Component {
             .then(response => response.json())
 
             .then(json => {
-                alert(JSON.stringify(json));
+                //alert(JSON.stringify(json));
                 this.props.history.push('/list');
             })
             .catch(function (error) {
                 alert(error);
             });
     }
-
     render() {
-
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-12">
                         <h1>{this.state.resultDetail.title}</h1>
-                        <p>{this.state.resultDetail.authors}</p>
+                        <p>{this.state.resultDetail.authors} </p>
                         <p>{this.state.resultDetail.description}</p>
                         <button className="addButton" onClick={this.SaveToList}>Add to reading list</button>
                     </div>
