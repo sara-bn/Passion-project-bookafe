@@ -40,6 +40,8 @@ namespace Bookafe
             services.AddAuthentication()
                 .AddIdentityServerJwt();
 
+            services.AddCors();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 
@@ -71,6 +73,7 @@ namespace Bookafe
 
             app.UseRouting();
 
+            app.UseCors("AllowMyOrigin");
             app.UseAuthentication();
             app.UseIdentityServer();
             app.UseAuthorization();
