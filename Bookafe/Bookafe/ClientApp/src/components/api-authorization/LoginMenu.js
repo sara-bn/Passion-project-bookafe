@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import authService from './AuthorizeService';
 import { ApplicationPaths } from './ApiAuthorizationConstants';
 
+
 export class LoginMenu extends Component {
     constructor(props) {
         super(props);
@@ -29,10 +30,14 @@ export class LoginMenu extends Component {
             isAuthenticated,
             userName: user && user.name
         });
+        localStorage.setItem('myuser', this.state.userName);
     }
 
     render() {
         const { isAuthenticated, userName } = this.state;
+        //alert('Start:'+userName);
+        //alert('Local:' + localStorage.getItem('myuser'));
+        
         if (!isAuthenticated) {
             const registerPath = `${ApplicationPaths.Register}`;
             const loginPath = `${ApplicationPaths.Login}`;
@@ -42,13 +47,11 @@ export class LoginMenu extends Component {
             const logoutPath = { pathname: `${ApplicationPaths.LogOut}`, state: { local: true } };
             return this.authenticatedView(userName, profilePath, logoutPath);
         }
+        
     }
 
     authenticatedView(userName, profilePath, logoutPath) {
         return (<Fragment>
-            <NavItem>
-                <NavLink tag={Link} className="text-dark" to={profilePath}>Hello {userName}</NavLink>
-            </NavItem>
             <NavItem>
                 <NavLink tag={Link} className="text-dark" to={logoutPath}>Logout</NavLink>
             </NavItem>

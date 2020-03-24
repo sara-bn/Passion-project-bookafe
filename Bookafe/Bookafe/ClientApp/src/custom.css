@@ -1,4 +1,28 @@
-/* Provide sufficient contrast against white background */
+﻿/* Provide sufficient contrast against white background */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    background-image: url('./img/2 (2).jpg');
+    height:1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main {
+    color: white;
+    width: 50%;
+    position: absolute;
+    top: 130px;
+    right: 80px;
+    padding:20px;
+}
+.covers {
+    height:200px;
+    width: 140px;
+}
 a {
   color: #0366d6;
 }
@@ -12,3 +36,75 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.fa-search {
+    color: #66CDAA;
+}
+.fa-check {
+    color: white;
+}
+.fa-trash-alt {
+    color: white;
+}
+.tableHead {
+    background-color: black;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1em;
+    border-bottom: 2px solid white;
+}
+tr{
+    text-align:center;
+}
+td {
+    padding:0;
+    text-align: center;
+    vertical-align: middle
+}
+.addButton {
+    border-radius: 8px;
+    background-color: #FF7F50;
+    color: #3CB371;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.changeButton {
+    border: none;
+    background-color: black;
+}
+.removeButton {
+    background-color: black;
+    border: none;
+}
+.searchBar {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #FF7F50;
+    width: 60%;
+    margin: auto;
+}
+.searchButton {
+    border: none;
+    background-color: #FF7F50;
+}
+.input {
+    border-radius: 8px;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+}
+table {
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.td-for-seach-table {
+    padding: 1em;
+    background: #ebedeb;
+    border-bottom: 2px solid white;
+}
+
