@@ -1,9 +1,4 @@
 ﻿import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
-import { LoginMenu } from './api-authorization/LoginMenu';
-import moment from 'moment';
-import DateTimePicker from 'react-datetime-picker';
 
 
 export class Details extends Component {
