@@ -1,5 +1,5 @@
 # BOOKAFE
-###Video
+### Video
 https://ssd1920a.slack.com/archives/DN6TUJ8SY/p1585114884000200
 
 Bookafe is a website for book lovers that provides useful set of information for books. You can find a brief summary and information about the book. If you are interested, you can register into our website and make a profile. Then you choose your reading list, select start date and choose the plan duration (like 3 weeks) for each book and you will receive a reading plan.
