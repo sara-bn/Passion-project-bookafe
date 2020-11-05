@@ -1,50 +1,57 @@
-﻿/* Provide sufficient contrast against white background */
-body, html {
-    height: 100%;
-    margin: 0;
-    background-color: #dce0dd;
-}
+﻿
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rancho&family=Merriweather:wght@300&display=swap');
 
-.content{
-    background-color:red;
+/* Box Sizing Reset */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
-
-.wrapper {
-    background-image: url('./img/2 (2).jpg');
-    height:1000px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+    background-color:sandybrown;
+    font-family: "Merriweather";
 }
-.main {
-    color: white;
-    width: 50%;
-    position: absolute;
-    top: 130px;
-    right: 80px;
-    padding:20px;
+.appName {
+    font-family: "Rancho";
+    font-size: 2.5em;
+}
+img{
+    width:300px;
+    height:300px;
+}
+.start-text {
+    color: lightyellow;
+    padding-top: 30px;
+    font-size: 2.2em;
 }
 .covers {
     height:200px;
     width: 140px;
-    padding:8px;
+    padding:10px;
 }
 a {
-  color: #0366d6;
+    font-size: 1.7em;
+    font-family: "Rancho";
+}
+a:hover {
+    border-bottom:1px solid black;
+}
+
+p {
+    font-size: 1.5em;
+}
+h1 {
+    font-family: "Rancho";
+    padding-bottom:20px;
 }
 
 code {
   color: #E01A76;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
 .fa-search {
-    color: #F4A363;
+    color: lightyellow;
 }
 .fa-check {
     color: white;
@@ -52,57 +59,77 @@ code {
 .fa-trash-alt {
     color: white;
 }
-.tableHead-search {
-    background-color: #F4A363;
-    color: black;
-    text-align: center;
+
+.container {
     padding: 20px;
 }
-.tableHead-list {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-tr{
-    text-align:center;
-}
-td {
-    padding:0;
-    text-align: center;
-    vertical-align: middle;
-}
-.addButton {
+.add-button {
+    font-family: "Rancho";
     border-radius: 8px;
-    background-color: #0A7B79;
-    color: #F4A363;
-    padding: 10px;
-    font-weight: bold;
+    border: none;
+    background-color: #10316B;
+    color: lightyellow;
+    padding: 20px;
+    font-size: 1.5em;
 }
 
-.changeButton {
+.change-button {
     border: none;
     background-color: black;
 }
-.removeButton {
+.remove-button {
     background-color: black;
     border: none;
 }
-.searchBar {
+.search-bar {
     display: flex;
     justify-content: center;
-    padding: 5px;
+    padding: 15px;
     border-radius: 8px;
-    background-color: #0A7B79;
+    background-color: #10316B;
     width: 80%;
     margin: auto;
     margin-top: 40px;
 }
+.col-12{
+    text-align:center;
+}
 .searchButton {
     border: none;
-    background-color: #0A7B79;
+    background-color: #10316B;
 }
-
+.card-group{
+    margin-top:20px;
+}
+.card {
+    background-color: sandybrown;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px;
+}
+.card-style {
+    min-width:18rem;
+    margin:20px;
+}
+.card-img-top {
+    height: 300px;
+    width: 200px;
+    margin:0 auto;
+}
+.card-title{
+    font-weight:bold;
+}
+.card-text{
+    font-size:16px;
+}
+.card-footer {
+    background-color:#FFCE63
+}
+.card-footer a {
+    font-size: 24px;
+    color: lightyellow;
+}
 .input {
     margin: 10px 10px;
     background: none;
@@ -142,21 +169,32 @@ input:focus {
     font-weight: bold;
 }
 
-table {
+.table {
     border-collapse: collapse;
     border-radius: 8px;
     overflow: hidden;
-    margin-top: 30px;
-    width:60%;
+    margin-top: 80px;
+    width:80%;
+    margin:0 auto;
+    text-align: center;
 }
-.td-for-seach-table {
-    background: white;
-    border-bottom: 2px solid #dce0dd;
+.table-sm td {
+    padding: 15px;
 }
+.table th {
+    background-color: #10316B;
+    color: lightyellow;
+    text-align: center;
+    padding: 20px;
+    height: 80px;
+    vertical-align: middle;
+    font-size: 1.2em;
+}
+
 .loading {
-    padding-top:30px;
+    padding-top: 30px;
     border-radius: 8px;
-    background-color: #FF7F50;
+    background-color: #F4A363;
     color: white;
     padding: 10px;
     font-weight: bold;
@@ -190,12 +228,19 @@ table {
 .navbar-nav {
     font-weight: bold;
 }
-.navbar {
-    background-color: #D3F2E9;
-}
-.bookTitle{
-    color:white;
-}
+@media (min-width: 600px) {
+    .home {
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
+    img {
+        width: 400px;
+        height: 400px;
+        padding-right:30px;
+    }
+}
 
 

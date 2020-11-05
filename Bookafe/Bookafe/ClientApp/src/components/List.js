@@ -66,12 +66,12 @@ export class List extends Component {
 
     render() {
         const contents = this.state.lists.map((item) =>
-            <tr tr className="tableRow" style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#F4A363" }} key={item.id}  >
+            <tr tr className="tableRow" style={{ backgroundColor: item.isComplete ? "lightseagreen" : "lightyellow" }} key={item.id}  >
                 <td> {item.bookTitle} </td>
                 <td> {item.createdAt} </td>
                 {!item.isComplete ? <td>Not Yet</td> : <td>Completed</td>}
-                <td> <i className='fa fa-check changeButton' onClick={this.changeStatus} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#F4A363" }} id={item.id} value={item.bookTitle}></i></td>
-                <td> <i className='far fa-trash-alt removeButton' onClick={this.removeItem} style={{ backgroundColor: item.isComplete ? "#66CDAA" : "#F4A363" }} id={item.id}></i></td>
+                <td> <i className='fa fa-check change-button' onClick={this.changeStatus} style={{ backgroundColor: item.isComplete ? "#lightseagreen" : "#lightyellow" }} id={item.id} value={item.bookTitle}></i></td>
+                <td> <i className='far fa-trash-alt remove-button' onClick={this.removeItem} style={{ backgroundColor: item.isComplete ? "#lightseagreen" : "#lightyellow" }} id={item.id}></i></td>
             </tr>
         )
         return (

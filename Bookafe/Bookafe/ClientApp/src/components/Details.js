@@ -64,7 +64,7 @@ export class Details extends Component {
                         <h1>{this.state.resultDetail.title}</h1>
                         <p>{this.state.resultDetail.authors} </p>
                         <p>{this.state.resultDetail.description}</p>
-                        <button className="addButton" onClick={this.SaveToList}>Add to reading list</button>
+                        <button className="add-button" onClick={this.SaveToList}>Add to reading list</button>
                     </div>
                 </div>
             </div>

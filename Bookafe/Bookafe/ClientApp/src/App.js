@@ -18,11 +18,11 @@ export default class App extends Component {
         let user;
     return (
       <Layout>
-        <Route exact path='/' component={Home} />
-            <AuthorizeRoute path='/search' component={Search} />
+        <Route exact path="/" component={Home} />
+            <AuthorizeRoute path="/search" component={Search} />
             <AuthorizeRoute path="/details/:id" component={Details} />
             <AuthorizeRoute path='/list' component={List} />
-        <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+            <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );
   }

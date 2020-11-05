@@ -1,6 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
+import CardGroup from 'react-bootstrap/CardGroup';
+import Card from 'react-bootstrap/Card'
 export class Search extends Component {
     constructor() {
         super();
@@ -48,17 +49,23 @@ export class Search extends Component {
     }
     render() {
         if (this.state.searchResult) {
-            const contents = this.state.searchResult.map((data) =>
-                <tr className="td-for-seach-table">
-                    {data.volumeInfo.imageLinks && <td><img className="covers" src={data.volumeInfo.imageLinks.thumbnail} alt="coverimage" /></td>}
-                    <td >  <Link key={data.id} to={"/details/" + data.id}> {data.volumeInfo.title}</Link></td>
-                    <td>  {data.volumeInfo.authors} </td>
-                    <td>  {data.volumeInfo.averageRating} </td>                 
-                </tr>
+            const contents = this.state.searchResult.map((item) =>
+                <Card className="card-style">
+                    {item.volumeInfo.imageLinks && <Card.Img variant="top" src={item.volumeInfo.imageLinks.thumbnail} alt="coverimage" />}
+                                    <Card.Body>
+                        <Card.Title>{item.volumeInfo.title}</Card.Title>
+                        <Card.Text>
+                            {item.volumeInfo.authors}
+                              </Card.Text>
+                                    </Card.Body>
+                                    <Card.Footer>
+                        <small className="text-muted"><Link key={item.id} to={"/details/" + item.id}>Read more</Link></small>
+                                    </Card.Footer>
+                                </Card>
             )
             return (
                 <div>
-                    <div className="searchBar">
+                    <div className="search-bar">
                     <input className="input"
                         type="text"
                         placeholder="Title"
@@ -71,18 +78,20 @@ export class Search extends Component {
                     />
                         <button className="searchButton" onClick={this.getAll}><i class="fa fa-search fa-lg"></i></button>
                     </div>
-                    {this.state.showTable ? <div><table class="table table-sm ">
-                        <tr className="tableHead-search"><th>Book Cover</th><th>Title</th><th>Author</th><th>Rating</th></tr>
+                    {this.state.showTable &&
+                        <CardGroup>
                         {contents}
-                    </table></div> : <div></div>}
+                        
+                        </CardGroup>
+                    }
                     
                 </div>
             );
             }
             else {
             return (
-                    <div>
-                    <div className="searchBar">
+                <div >
+                    <div className="search-bar">
                         <input className="input"
                             type="text"
                             placeholder="Title"
