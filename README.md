@@ -38,16 +38,11 @@ Bookafe is a website for book lovers that provides useful set of information for
 ## Entity Relationship Diagram (I will you google api instead)
 ![ERD](ERD.png)
 
-## Prototype 
-![page1](page1.PNG | width=100)
 
-![page2](page2.PNG) 
+## Technologies
+* **Back-end**: ASP .NET Core Web API<br/>
+* **Front-end**: React<br/>
+* **Authentication And Authorization**: JSON Web Tokens
+* **Database**: SQL server <br />
 
-![page3](page3.PNG) 
-
-![page4](page4.PNG) 
-
-![page5](page5.PNG) 
-
-![page6](page6.PNG)
 
