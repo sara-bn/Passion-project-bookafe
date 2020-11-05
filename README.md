@@ -1,6 +1,14 @@
 # BOOKAFE
+### Video
+
 
 Bookafe is a website for book lovers that provides useful set of information for books. You can find a brief summary and information about the book. If you are interested, you can register into our website and make a profile. Then you choose your reading list, select start date and choose the plan duration (like 3 weeks) for each book and you will receive a reading plan.
+
+## Technologies
+* **Back-end**: ASP .NET Core Web API<br/>
+* **Front-end**: React<br/>
+* **Authentication And Authorization**: JSON Web Tokens
+* **Database**: SQL server <br />
 
 ## Functional
 1.  User Authentication
@@ -28,24 +36,11 @@ Bookafe is a website for book lovers that provides useful set of information for
 
 ## Nice to Have:  
 1.  Link to Stores
-1. Link to Libraries
+1.  Link to Libraries
 1.  Link to Meet-up Groups (if existed)
 1.  Notifications and follow ups for the plan
 1.  Allow Social Login
 
-## Entity Relationship Diagram (I will you google api instead)
-![ERD](ERD.png)
 
-## Prototype 
-![page1](page1.PNG | width=100)
 
-![page2](page2.PNG) 
-
-![page3](page3.PNG) 
-
-![page4](page4.PNG) 
-
-![page5](page5.PNG) 
-
-![page6](page6.PNG)
 
