@@ -13,10 +13,10 @@ Bookafe is a website for book lovers that provides useful set of information for
 1.  Save the reading list
 
 ## Screenshots:
-<img src="Images/bookafe1.png" width="600">
+<img src="Images/bookafe1.png" width="800">
 <img src="Images/bookafe2.png" width="800">
-<img src="Images/bookafe3.png" width="700">
-<img src="Images/bookafe4.png" width="900">
+<img src="Images/bookafe3.png" width="800">
+<img src="Images/bookafe4.png" width="800">
 
 
 
